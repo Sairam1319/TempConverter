@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <div class="container">
+        <div class="form-group">
+            <label for="celsius">Celsius:</label>
+            <input type="text" id="celsius">
+        </div>
+        <div class="form-group">
+            <label for="fahrenheit">Fahrenheit:</label>
+            <input type="text" id="fahrenheit">
+        </div>
+        <div class="form-group">
+            <button onclick="convertCelsiusToFahrenheit()">Convert Celsius to Fahrenheit</button>
+        </div>
+        <div class="form-group">
+            <button onclick="convertFahrenheitToCelsius()">Convert Fahrenheit to Celsius</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function convertCelsiusToFahrenheit() {
+            var celsiusInput = document.getElementById("celsius");
+            var fahrenheitOutput = document.getElementById("fahrenheit");
+            var celsius = parseFloat(celsiusInput.value);
+            var fahrenheit = (celsius * 9/5) + 32;
+            fahrenheitOutput.value = fahrenheit.toFixed(2);
+            document.getElementById("result").innerHTML = celsius + " degrees Celsius is equal to " + fahrenheit.toFixed(2) + " degrees Fahrenheit.";
+        }
+
+        function convertFahrenheitToCelsius() {
+            var fahrenheitInput = document.getElementById("fahrenheit");
+            var celsiusOutput = document.getElementById("celsius");
+            var fahrenheit = parseFloat(fahrenheitInput.value);
+            var celsius = (fahrenheit - 32) * 5/9;
+            celsiusOutput.value = celsius.toFixed(2);
+            document.getElementById("result").innerHTML = fahrenheit + " degrees Fahrenheit is equal to " + celsius.toFixed(2) + " degrees Celsius.";
+        }
+    </script>
+</body>
+</html>
